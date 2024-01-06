@@ -8,7 +8,6 @@ import (
 	"time"
 )
 
-// Open the hangman.txt file and display its positions
 func LoadHangmanStages(filePath string) ([]string, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -39,11 +38,8 @@ func LoadHangmanStages(filePath string) ([]string, error) {
 }
 
 // Randomly open a file then randomly choose a word
-func LoadRandomWord(files []string) (string, error) {
-	rand.Seed(time.Now().UnixNano())
-	selectedFile := files[rand.Intn(len(files))]
-
-	file, err := os.Open(selectedFile)
+func LoadRandomWord(selectedFile) (string, error) {
+	file, err := os.Open(selectedFile ) //remplacer par os qui lis l'input console
 	if err != nil {
 		return "", err
 	}

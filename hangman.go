@@ -14,7 +14,6 @@ type HangManData struct {
 	TriedLetters  []rune
 	HangmanStages []string
 }
-
 // Start a new game
 func NewGame(word string, stages []string) *HangManData {
 	game := &HangManData{
@@ -34,5 +33,13 @@ func revealInitialLetters(game *HangManData) {
 	for i := 0; i < lettersToReveal; i++ {
 		randomIndex := rand.Intn(len(game.ToFind))
 		revealLetter(game, rune(game.ToFind[randomIndex]))
+	}
+}
+
+func CheckEndGameCondition(game *hangman.HangManData) {
+	if game.Attempts <= 0 {
+		//perdu affiché nouvelle page
+	} else if game.Word == game.ToFind {
+		//gagné affiché nouvelle page
 	}
 }

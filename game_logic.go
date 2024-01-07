@@ -1,12 +1,7 @@
-package github.com/Yukojuni/hangman
+package hangman
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
 	"strings"
-
-	"github.com/rivo/tview"
 )
 
 // Update the game
@@ -34,7 +29,7 @@ func processSingleLetter(game *HangManData, letter rune) {
 }
 
 // Checks if the word entered is equal to "STOP", the word found or if it is different
-func processWholeWord(app *tview.Application, game *HangManData, word string) {
+func processWholeWord(game *HangManData, word string) {
 	if word == game.ToFind {
 		game.Word = game.ToFind
 	} else {

@@ -1,4 +1,4 @@
-package github.com/Yukojuni/hangman
+package hangman
 
 import (
 	"math/rand"
@@ -14,6 +14,7 @@ type HangManData struct {
 	TriedLetters  []rune
 	HangmanStages []string
 }
+
 // Start a new game
 func NewGame(word string, stages []string) *HangManData {
 	game := &HangManData{

@@ -8,6 +8,37 @@ import (
 	"time"
 )
 
+// Randomly open a file then randomly choose a word
+func LoadRandomWord(difficulty) (string, error) {
+	if difficulty == "Easy" {
+		selectedFile = "word1.txt"
+	}else if difficulty == "Medium" {
+		selectedFile = "word2.txt"
+	} else if difficulty == "Hard" {
+		selectedFile = "word3.txt"
+	}
+	
+	file, err := os.Open(selectedFile)
+	if err != nil {
+		return "", err
+	}
+	defer file.Close()
+
+	var words []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		words = append(words, scanner.Text())
+	}
+
+	if err := scanner.Err(); err != nil {
+		return "", err
+	}
+
+	return words[rand.Intn(len(words))], nil
+}
+
+
+
 func LoadHangmanStages(filePath string) ([]string, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -35,25 +66,4 @@ func LoadHangmanStages(filePath string) ([]string, error) {
 	}
 
 	return stages, scanner.Err()
-}
-
-// Randomly open a file then randomly choose a word
-func LoadRandomWord(selectedFile) (string, error) {
-	file, err := os.Open(selectedFile ) //remplacer par os qui lis l'input console
-	if err != nil {
-		return "", err
-	}
-	defer file.Close()
-
-	var words []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		words = append(words, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		return "", err
-	}
-
-	return words[rand.Intn(len(words))], nil
 }

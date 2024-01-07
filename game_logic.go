@@ -45,3 +45,7 @@ func revealLetter(game *HangManData, letter rune) {
 		}
 	}
 }
+
+func RunesToString(runes []rune) string {
+	return string(runes)
+}

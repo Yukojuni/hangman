@@ -8,7 +8,8 @@ import (
 )
 
 // Randomly open a file then randomly choose a word
-func LoadRandomWord(difficulty) (string, error) {
+func LoadRandomWord(difficulty string) (string, error) {
+	selectedFile := ""
 	if difficulty == "Easy" {
 		selectedFile = "word1.txt"
 	} else if difficulty == "Medium" {

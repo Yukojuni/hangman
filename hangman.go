@@ -37,7 +37,7 @@ func revealInitialLetters(game *HangManData) {
 	}
 }
 
-func CheckEndGameCondition(game *hangman.HangManData) {
+func CheckEndGameCondition(game *HangManData) {
 	if game.Attempts <= 0 {
 		//perdu affiché nouvelle page
 	} else if game.Word == game.ToFind {

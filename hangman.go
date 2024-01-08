@@ -38,7 +38,7 @@ func revealInitialLetters(game *HangManData) {
 	}
 }
 
-func CheckEndGameCondition(game *HangManData) int {
+func CheckEndGameCondition(game *HangManData) {
 	if game.Attempts <= 0 {
 		game.End = -1
 	} else if game.Word == game.ToFind {

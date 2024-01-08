@@ -10,9 +10,10 @@ func UpdateGame(game *HangManData, input string) {
 	input = strings.ToLower(input)
 	if len(input) == 1 {
 		if strings.ContainsRune(string(game.TriedLetters), rune(input[0])) {
+		} else {
+			game.TriedLetters = append(game.TriedLetters, rune(input[0]))
+			processSingleLetter(game, rune(input[0]))
 		}
-		game.TriedLetters = append(game.TriedLetters, rune(input[0]))
-		processSingleLetter(game, rune(input[0]))
 	} else if len(input) > 1 {
 		processWholeWord(game, input)
 	}

@@ -13,6 +13,7 @@ type HangManData struct {
 	Attempts      int
 	TriedLetters  []rune
 	HangmanStages []string
+	End           int
 }
 
 // Start a new game
@@ -37,10 +38,11 @@ func revealInitialLetters(game *HangManData) {
 	}
 }
 
-func CheckEndGameCondition(game *HangManData) {
+func CheckEndGameCondition(game *HangManData) int {
 	if game.Attempts <= 0 {
-		//perdu affiché nouvelle page
+		game.End = -1
 	} else if game.Word == game.ToFind {
-		//gagné affiché nouvelle page
+		game.End = 1
 	}
+	game.End = 0
 }

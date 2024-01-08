@@ -6,6 +6,7 @@ import (
 
 // Update the game
 func UpdateGame(game *HangManData, input string) {
+	CheckEndGameCondition(game)
 	input = strings.ToLower(input)
 	if len(input) == 1 {
 		if strings.ContainsRune(string(game.TriedLetters), rune(input[0])) {

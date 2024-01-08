@@ -23,6 +23,7 @@ func NewGame(word string, stages []string) *HangManData {
 		ToFind:        word,
 		Attempts:      10,
 		HangmanStages: stages,
+		End:           0,
 	}
 	revealInitialLetters(game)
 	return game
@@ -43,7 +44,5 @@ func CheckEndGameCondition(game *HangManData) {
 		game.End = -1
 	} else if game.Word == game.ToFind {
 		game.End = 1
-	} else {
-		game.End = 0
 	}
 }

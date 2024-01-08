@@ -43,6 +43,7 @@ func CheckEndGameCondition(game *HangManData) {
 		game.End = -1
 	} else if game.Word == game.ToFind {
 		game.End = 1
+	} else {
+		game.End = 0
 	}
-	game.End = 0
 }

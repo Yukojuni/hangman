@@ -11,11 +11,11 @@ import (
 func LoadRandomWord(difficulty string) (string, error) {
 	selectedFile := ""
 	if difficulty == "Easy" {
-		selectedFile = "/home/lucasmcn/dev/hangman-web/word1.txt"
+		selectedFile = "word1.txt"
 	} else if difficulty == "Medium" {
-		selectedFile = "/home/lucasmcn/dev/hangman-web/word2.txt"
+		selectedFile = "word2.txt"
 	} else if difficulty == "Hard" {
-		selectedFile = "/home/lucasmcn/dev/hangman-web/word3.txt"
+		selectedFile = "word3.txt"
 	}
 
 	file, err := os.Open(selectedFile)
